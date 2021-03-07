@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type"
+		content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width,
+		minimum-scale=1,initial-scale=1">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+
+	<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
+	<script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
+	<script src="https://unpkg.com/figlet/lib/figlet.js"></script>
+
+	<style type="text/css">
+		.terminal,
+		span,
+		.cmd,
+		div {
+			--color: rgba(77, 72, 72, 0.99);
+		}
+
+		.terminal,
+		span {
+			--size: 1.4;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		
+		
+		$(document).ready(function(){
+        var terminal = $('body').terminal(function(command, term) {
+        }, {
+			greetings: 'Welcome to my personal website.',
+            login: f_login,
+            prompt: '>',
+			
+        },
+										  
+										 
+		);
+
+			
+			
+			
+        if (terminal.token()) {
+            terminal.logout();
+        }
+		
+		
+			
+    });
+
+    function f_login(user, password, callback) {
+        if (user == 'james' && password == 'lukin') {
+            callback('SECRET TOKEN');
+			window.location.replace("http://www.w3schools.com");
+        } else {
+            callback(null);
+        }
+    }
+		
+	</script>
+</body>
+
+</html>
